@@ -25,11 +25,17 @@ export default {
     '@nuxtjs/i18n',
     // https://pinia.vuejs.org/core-concepts/
     '@pinia/nuxt',
+    //https://github.com/gaetansenn/vue3-carousel-nuxt
+    'vue3-carousel-nuxt'
   ],
 
   components: {
     dirs: ['components'],
     global: true,
+  },
+
+  carousel: {
+    prefix: 'Nuxt',
   },
 
   i18n: {
