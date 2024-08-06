@@ -1,17 +1,12 @@
 module.exports = {
     content: [
-      './components/**/*.{vue,js,ts}',
+      './components/**/*.{vue,js}',
       './layouts/**/*.vue',
       './pages/**/*.vue',
+      './plugins/**/*.{js,ts}',
     ],
     theme: {
-      container: {
-        center: true,
-      },
+      extend: {},
     },
-    plugins: [
-      require('@tailwindcss/typography'),
-      require('@tailwindcss/forms'),
-    ],
-  }
-  
+    plugins: [],
+}

@@ -1,43 +1,37 @@
-export default {
+export default defineNuxtConfig({
   app: {
     head: {
       title: 'Patrick Chartrand',
-      titleTemplate: 'Patrick Chartrand',
+      titleTemplate: '%s - Patrick Chartrand',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
-        { hid: 'description', name: 'description', content: '' },
+        { hid: 'description', name: 'description', content: 'Patrick Chartrand Website' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, 
+      ],
     },
   },
-
-  css: ['~/assets/css/style.css'],
-
+  devtools: { enabled: false },
+  css: ['~/assets/css/main.css'],
   modules: [
     // https://vueuse.org/
     '@vueuse/nuxt',
-    // https://tailwindcss.nuxtjs.org/
-    '@nuxtjs/tailwindcss',
-    // https://nuxt.com/modules/i18n
+    // https://v8.i18n.nuxtjs.org/
     '@nuxtjs/i18n',
     // https://pinia.vuejs.org/core-concepts/
     '@pinia/nuxt',
-    //https://github.com/gaetansenn/vue3-carousel-nuxt
-    'vue3-carousel-nuxt'
+    // https://nuxt.com/modules/tailwindcss
+    '@nuxtjs/tailwindcss'
   ],
-
   components: {
     dirs: ['components'],
     global: true,
   },
-
-  carousel: {
-    prefix: 'Nuxt',
-  },
-
+  /**
   i18n: {
     defaultLocale: 'en',
     strategy: 'prefix',
@@ -47,8 +41,7 @@ export default {
       { code: 'fr', iso: 'fr-CA', name: 'Français', file: 'fr.json' },
     ],
   },
+  */
+})
 
-  nitro: {
-    preset: 'vercel-edge',
-  },
-};
+
