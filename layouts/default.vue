@@ -73,13 +73,13 @@ onMounted(() => {
 
 <template>
     <header class="px-10 md:px-20 w-full h-28 relative fixed... left-0 z-10 flex justify-between items-center transition-all duration-300" :class="{ '-top...-[130px] top-0 ': y > 200, 'top-0 ': y <= 200 }">
-        <img class="w-40 h-40 -ml-8 -mt-6 grayscale sepia-[35%] invert" src="@/assets/images/signature.png" />
-        <nav class="hidden md:flex items-center gap-10">
+        <img class="w-40 h-40 -ml-8 -mt-6 grayscale sepia-[35%] invert" src="@/assets/images/signature.png" @click="useRoute().path === '/' ? null : navigateTo('/')" @dblclick="useRoute().path === '/' ? navigateTo('/login') : null" />
+        <nav v-if="useRoute().path === '/'" class="hidden md:flex items-center gap-10">
             <Anchor :text="'About'" :link="'#about'" />
             <Anchor :text="'Projects'" :link="'#projects'" />
             <Button :label="'contact'" :action="{ subject: 'nuxtlink', code: 'mailto:patrick.chartrand@umontreal.ca' }" :isBasic="false" />
         </nav>
-        <button type="button" class="w-fit h-fit md:hidden grid items-center rounded-full bg-amber-50 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
+        <button v-if="useRoute().path === '/'" type="button" class="w-fit h-fit md:hidden grid items-center rounded-full bg-amber-50 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
@@ -118,47 +118,5 @@ onMounted(() => {
         <h1 class="text-amber-50 font-medium tracking-wider text-base text-center md:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>
     </footer>
 </template>
-
-<style>
-    html:has(.loader) {
-        overflow: hidden;
-    }
-    .loader {
-        width: 40px;
-        height: 20px;
-        background: #14b8a6;
-        position: relative;
-        animation: l19-0 1.5s infinite linear;
-    }
-    .loader:before,
-    .loader:after {
-        content:"";
-        position: absolute;
-        background: inherit; 
-        bottom: 100%;
-        width: 50%;
-        height: 100%;
-        animation: inherit;
-        animation-name: l19-1;
-    }
-    .loader:before {
-        left:0;
-        --s:-1,1;
-    }
-    .loader:after {
-        right:0;
-    }
-    @keyframes l19-0 {
-        0%,30%   {transform:translateY(0)     scaleY(1)}
-        49.99%   {transform:translateY(-50%)  scaleY(1)}
-        50%      {transform:translateY(-50%)  scaleY(-1)}
-        70%,100% {transform:translateY(-100%) scaleY(-1)}
-    }
-    @keyframes l19-1 {
-        0%,10%,90%,100% {transform: scale(var(--s,1)) translate(0)}
-        30%,70%         {transform: scale(var(--s,1)) translate(20px)}
-        50%             {transform: scale(var(--s,1)) translate(20px,20px)}
-    }
-</style>
 
 

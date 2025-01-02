@@ -1,7 +1,7 @@
 <template>
     <div class="text-stone-800">
         <div class="grid-wrapper">
-            <div class="relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('https://beaulieucanada.com', { external: true, open: { target: '_blank' } })">
+            <div class="order-1 md:-order-none relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('https://beaulieucanada.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Beaulieu Canada</span>
                     <span class="font-medium text-2xl text-right">2025</span>
@@ -17,7 +17,7 @@
                     <Badge :text="'Javascript'" />
                 </div>
             </div>
-            <div class="relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('https://diy-robotics.com', { external: true, open: { target: '_blank' } })">
+            <div class="order-2 md:-order-none relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('https://diy-robotics.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">DIY Robotics</span>
                     <span class="font-medium text-2xl text-right">2024</span>
@@ -33,7 +33,7 @@
                     <Badge :text="'Woocommerce'" />
                 </div>
             </div>
-            <div class="tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('https://clariprod.com', { external: true, open: { target: '_blank' } })">
+            <div class="order-3 md:-order-none tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('https://clariprod.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Clariprod</span>
                     <span class="font-medium text-2xl text-right">2024</span>
@@ -47,7 +47,7 @@
                     <Badge :text="'CSS'" />
                 </div>
             </div>
-            <div class="tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('https://sens-public.org', { external: true, open: { target: '_blank' } })">
+            <div class="order-6 md:-order-none tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('https://sens-public.org', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Sens Public</span>
                     <span class="font-medium text-2xl text-right">2020</span>
@@ -62,7 +62,7 @@
                     <Badge :text="'HTML'" />
                 </div>
             </div>
-            <div class="relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('https://cfmrobotique.com', { external: true, open: { target: '_blank' } })">
+            <div class="order-4 md:-order-none relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('https://cfmrobotique.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">CFM Robotique</span>
                     <span class="font-medium text-2xl text-right">2024</span>
@@ -75,7 +75,7 @@
                     <Badge :text="'Jquery'" />
                 </div>
             </div>
-            <div class="wide relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('https://avril.ca', { external: true, open: { target: '_blank' } })">
+            <div class="order-5 md:-order-none wide relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('https://avril.ca', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Avril &mdash; Supermarché Santé</span>
                     <span class="font-medium text-2xl text-right">2021</span>
