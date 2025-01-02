@@ -1,5 +1,5 @@
 <template>
-    <table class="text-stone-500 leading-none text-sm sm:text-base md:text-xl border-none mt-32 w-full max-w-3xl">
+    <table class="text-stone-500 leading-none text-sm sm:text-base md:text-xl border-none mt-14 md:mt-24 w-full max-w-3xl">
                 <tr class="border-b border-stone-500 hover:text-teal-500 transition-all duration-300">
                     <td class="leading-none font-medium py-3">College course at Cégep Limoilou</td>
                     <td class="leading-none font-medium py-3 text-teal-500">Wordpress websites</td>
