@@ -67,7 +67,7 @@ onMounted(() => {
 
     setTimeout(() => {
         isLoading.value = false
-    }, 5000)
+    }, 4000)
 })
 </script>
 
@@ -98,10 +98,10 @@ onMounted(() => {
         </ul>
     </aside>
     <main class="px-10 md:px-20">
-        <slot />
         <div v-if="isLoading" class="bg-[#0b0b0b] absolute z-50 top-0 left-0 h-screen w-screen flex items-center justify-center">
             <i class="loader" />
         </div>
+        <slot />
     </main>
     <footer class="md:flex flex-row-reverse justify-between items-center px-10 md:px-20 my-3">
         <div class="text-amber-50 flex justify-center md:justify-start items-center gap-3">
@@ -115,7 +115,7 @@ onMounted(() => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><path fill="currentColor" d="M17.316 6.246q.011.244.011.488c0 4.99-3.797 10.742-10.74 10.742c-2.133 0-4.116-.625-5.787-1.697a7.58 7.58 0 0 0 5.588-1.562a3.78 3.78 0 0 1-3.526-2.621a3.86 3.86 0 0 0 1.705-.065a3.78 3.78 0 0 1-3.028-3.703v-.047a3.8 3.8 0 0 0 1.71.473a3.775 3.775 0 0 1-1.168-5.041a10.72 10.72 0 0 0 7.781 3.945a3.8 3.8 0 0 1-.097-.861a3.773 3.773 0 0 1 3.774-3.773a3.77 3.77 0 0 1 2.756 1.191a7.6 7.6 0 0 0 2.397-.916a3.8 3.8 0 0 1-1.66 2.088a7.6 7.6 0 0 0 2.168-.594a7.6 7.6 0 0 1-1.884 1.953"/></svg>
             </NuxtLink>
         </div>
-        <h1 class="text-amber-50 font-medium tracking-wider text-base text-center md:text-start">Designed and developed by Patrick Chartrand</h1>
+        <h1 class="text-amber-50 font-medium tracking-wider text-base text-center md:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>
     </footer>
 </template>
 
