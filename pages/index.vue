@@ -12,7 +12,7 @@ onMounted(() => {
 <template>
     <article class="py-20 h-full w-full flex items-center group">
         <div class="text-4xl md:text-6xl w-full md:w-11/12">
-            <p class="text-amber-50 font-medium m-0 flex gap-2 h-28 md:h-auto leading-none">Hello. <CommonTypewriter v-if="!isLoading" :writing="['I\'m a Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
+            <p class="text-amber-50 font-medium m-0 flex gap-2 h-28 md:h-auto leading-none">Hello. <CommonTypewriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
             <p class="text-stone-500 m-0 leading-none">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="text-teal-500 opacity-100 md:text-inherit cursor-pointer md:opacity-60 group-hover:opacity-100 group-hover:text-teal-500 transition-all duration-300 leading-none">Beaulieu Canada</a>, transforming how we experience internet.</p>
             <br class="mt-10 md:mt-0">
             <a href="/pchartrandCV.pdf" download style="pointer-events: none;">
