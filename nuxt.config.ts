@@ -8,15 +8,16 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
-        { hid: 'description', name: 'description', content: 'Patrick Chartrand Website' },
+        { hid: 'description', name: 'description', content: 'Patrick Chartrand' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, 
       ],
+      script: []
     },
   },
   devtools: { enabled: false },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/style.css'],
   modules: [
     // https://vueuse.org/
     '@vueuse/nuxt',
@@ -25,7 +26,7 @@ export default defineNuxtConfig({
     // https://pinia.vuejs.org/core-concepts/
     '@pinia/nuxt',
     // https://nuxt.com/modules/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
   components: {
     dirs: ['components'],
