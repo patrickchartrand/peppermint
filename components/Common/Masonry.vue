@@ -177,7 +177,7 @@
         bottom: 0;
     }
     100% {
-        bottom: -100px;
+        bottom: -250px;
     }
 }
 @keyframes showUrl {
@@ -202,7 +202,7 @@
 }
 @keyframes showBadges {
     0% {
-        bottom: -100px;
+        bottom: -250px;
     }
     100% {
         bottom: 0;
