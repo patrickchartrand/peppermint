@@ -1,7 +1,7 @@
 <template>
     <div class="text-stone-800">
         <div class="grid-wrapper">
-            <div class="relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('beaulieucanada.com', { external: true })">
+            <div class="relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('https://beaulieucanada.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Beaulieu Canada</span>
                     <span class="font-medium text-2xl text-right">2025</span>
@@ -17,23 +17,23 @@
                     <Badge :text="'Javascript'" />
                 </div>
             </div>
-            <div class="relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('diyrobotics.com', { external: true })">
+            <div class="relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('https://diy-robotics.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">DIY Robotics</span>
                     <span class="font-medium text-2xl text-right">2024</span>
                 </div>
                 <div class="url h-fit w-full leading-[0.75] tracking-wide text-7xl font-light break-words">
-                    diyrobotics.com
+                    diy-robotics.com
                 </div>
                 <div class="badges w-full flex flex-wrap-reverse gap-1.5">
-                    <Badge :text="'Nuxt.JS'" />
-                    <Badge :text="'Vue'" />
-                    <Badge :text="'Tailwind'" />
-                    <Badge :text="'Primevue'" />
-                    <Badge :text="'Javascript'" />
+                    <Badge :text="'Wordpress'" />
+                    <Badge :text="'PHP'" />
+                    <Badge :text="'SQL'" />
+                    <Badge :text="'JQuery'" />
+                    <Badge :text="'Woocommerce'" />
                 </div>
             </div>
-            <div class="tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('clariprod.com', { external: true })">
+            <div class="tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('https://clariprod.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Clariprod</span>
                     <span class="font-medium text-2xl text-right">2024</span>
@@ -42,30 +42,27 @@
                     clariprod.com
                 </div>
                 <div class="badges w-full flex flex-wrap-reverse gap-1.5">
-                    <Badge :text="'Nuxt.JS'" />
-                    <Badge :text="'Vue'" />
-                    <Badge :text="'Tailwind'" />
-                    <Badge :text="'Primevue'" />
-                    <Badge :text="'Javascript'" />
+                    <Badge :text="'Wordpress'" />
+                    <Badge :text="'Jquery'" />
+                    <Badge :text="'CSS'" />
                 </div>
             </div>
-            <div class="tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('senspublic.com', { external: true })">
+            <div class="tall relative !overflow-hidden w-full h-full p-3 bg-teal-600 flex flex-col !justify-between gap-10" @click="navigateTo('https://sens-public.org', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Sens Public</span>
                     <span class="font-medium text-2xl text-right">2020</span>
                 </div>
                 <div class="url h-fit w-full leading-[0.75] tracking-wide text-7xl font-light break-words">
-                    senspublic.com
+                    sens-public.org
                 </div>
                 <div class="badges w-full flex flex-wrap-reverse gap-1.5">
-                    <Badge :text="'Nuxt.JS'" />
-                    <Badge :text="'Vue'" />
-                    <Badge :text="'Tailwind'" />
-                    <Badge :text="'Primevue'" />
-                    <Badge :text="'Javascript'" />
+                    <Badge :text="'XML'" />
+                    <Badge :text="'Markdown'" />
+                    <Badge :text="'CSS'" />
+                    <Badge :text="'HTML'" />
                 </div>
             </div>
-            <div class="relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('cfmrobotique.com', { external: true })">
+            <div class="relative !overflow-hidden w-full h-full p-3 bg-amber-50 flex flex-col !justify-between gap-10" @click="navigateTo('https://cfmrobotique.com', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">CFM Robotique</span>
                     <span class="font-medium text-2xl text-right">2024</span>
@@ -74,27 +71,23 @@
                     cfmrobotique.com
                 </div>
                 <div class="badges w-full flex flex-wrap-reverse gap-1.5">
-                    <Badge :text="'Nuxt.JS'" />
-                    <Badge :text="'Vue'" />
-                    <Badge :text="'Tailwind'" />
-                    <Badge :text="'Primevue'" />
-                    <Badge :text="'Javascript'" />
+                    <Badge :text="'Wordpress'" />
+                    <Badge :text="'Jquery'" />
                 </div>
             </div>
-            <div class="wide relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('avril.com', { external: true })">
+            <div class="wide relative !overflow-hidden w-full h-full p-3 bg-teal-200 flex flex-col !justify-between gap-10" @click="navigateTo('https://avril.ca', { external: true, open: { target: '_blank' } })">
                 <div class="w-full flex justify-between">
                     <span class="font-medium text-2xl">Avril &mdash; Supermarché Santé</span>
                     <span class="font-medium text-2xl text-right">2021</span>
                 </div>
                 <div class="url h-fit w-full leading-[0.75] tracking-wide text-7xl font-light break-words">
-                    avril.com
+                    avril.ca
                 </div>
                 <div class="badges w-full flex flex-wrap-reverse gap-1.5">
-                    <Badge :text="'Nuxt.JS'" />
-                    <Badge :text="'Vue'" />
-                    <Badge :text="'Tailwind'" />
-                    <Badge :text="'Primevue'" />
-                    <Badge :text="'Javascript'" />
+                    <Badge :text="'Magento'" />
+                    <Badge :text="'HTML'" />
+                    <Badge :text="'CSS'" />
+                    <Badge :text="'SEO'" />
                 </div>
             </div>
         </div>
