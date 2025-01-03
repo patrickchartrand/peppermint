@@ -22,7 +22,7 @@ onMounted(() => {
     </article>
     <section id="about" class="py-20 xl:py-0 xl:min-h-screen h-full flex md:items-center">
         <div>
-            <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">A little about me</p>
+            <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">A little about myself</p>
             <p class="md:max-w-2xl text-stone-500 font-medium leading-snug text-xl my-5">
                 <img class="md:hidden float-right grayscale sepia-[35%] rounded-full w-32 h-fit mt-5 mx-2.5" src="@/assets/images/profil.jpeg" />
                 I bring over five years of experience in front-end development and website management, with a passion for editing 3D animations and writing contents.
