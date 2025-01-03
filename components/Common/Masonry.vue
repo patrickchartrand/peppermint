@@ -186,11 +186,11 @@
         transform: rotate(-15deg);
     }
     50% {
-        bottom: 0.50rem;
+        bottom: 0.75rem;
         transform: rotate(0deg);
     }
     100% {
-        bottom: 0.75rem;
+        bottom: 1rem;
         transform: rotate(0deg);
     }
 }
@@ -210,7 +210,7 @@
 }
 @keyframes hideUrl {
     0% {
-        bottom: 0.75rem;
+        bottom: 1rem;
         transform: rotate(0deg);
     }
     100% {
