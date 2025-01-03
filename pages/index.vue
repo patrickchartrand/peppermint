@@ -34,7 +34,7 @@ onMounted(() => {
         </div>
         <img class="hidden md:block rounded-full grayscale sepia-[35%] w-full h-fit min-w-40 max-w-xs mx-auto mt-32 md:mt-0" src="@/assets/images/profil.jpeg" />
     </section>
-    <section id="projects" class="py-20 xl:py-0 xl:min-h-screen h-full">
+    <section id="projects" class="py-20 xl:py-0 pb-20 xl:pb-32 xl:min-h-screen h-full">
         <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">Some of my projects</p>
        <CommonMasonry />
     </section>
