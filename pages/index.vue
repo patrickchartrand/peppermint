@@ -10,17 +10,17 @@ onMounted(() => {
 
 
 <template>
-    <article class="py-20 min-h-screen h-full w-full flex items-center group">
+    <article class="py-20 xl:min-h-screen h-full w-full flex items-center group">
         <div class="text-4xl md:text-6xl w-full md:w-11/12">
             <p class="text-amber-50 font-medium m-0 flex gap-2 h-28 md:h-auto leading-none">Hello. <CommonTypewriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
             <p class="text-stone-500 m-0 leading-none">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="text-teal-500 opacity-100 md:text-inherit cursor-pointer md:opacity-60 group-hover:opacity-100 group-hover:text-teal-500 transition-all duration-300 leading-none">Beaulieu Canada</a>, transforming how we experience internet.</p>
-            <br class="mt-10 md:mt-0">
+            <br class="mt-10 md:mt-0 xl:mt-20">
             <a href="/pchartrandCV.pdf" download style="pointer-events: none;">
                 <Button :label="'view my curriculum'" :action="null" :isBasic="true" />
             </a>
         </div>
     </article>
-    <section id="about" class="py-20 min-h-screen h-full flex md:items-center">
+    <section id="about" class="py-20 xl:py-0 xl:min-h-screen h-full flex md:items-center">
         <div>
             <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">A little about me</p>
             <p class="md:max-w-2xl text-stone-500 font-medium leading-snug text-xl my-5">
@@ -34,7 +34,7 @@ onMounted(() => {
         </div>
         <img class="hidden md:block rounded-full grayscale sepia-[35%] w-full h-fit min-w-40 max-w-xs mx-auto mt-32 md:mt-0" src="@/assets/images/profil.jpeg" />
     </section>
-    <section id="projects" class="py-20 min-h-screen h-full">
+    <section id="projects" class="py-20 xl:py-0 xl:min-h-screen h-full">
         <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">Some of my projects</p>
        <CommonMasonry />
     </section>
