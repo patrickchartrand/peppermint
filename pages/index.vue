@@ -1,5 +1,18 @@
 <script setup lang="ts">
 const isLoading = ref<boolean>(true)
+const element = ref<HTMLElement | null>()
+
+const { top } = useElementBounding(element)
+
+const blurLevel = computed(() => {
+  if (!top.value) return ''
+
+  const relative = top.value / window.innerHeight
+  if (relative < 0.4) return 'backdrop-blur-md blur'
+  if (relative < 0.7) return 'backdrop-blur-sm blur'
+
+  return ''
+})
 
 onMounted(() => {
     setTimeout(() => {
@@ -10,32 +23,114 @@ onMounted(() => {
 
 
 <template>
-    <article class="py-20 xl:min-h-screen h-full w-full flex items-center group">
-        <div class="text-4xl md:text-6xl w-full md:w-11/12">
-            <p class="text-amber-50 font-medium m-0 flex gap-2 h-28 md:h-auto leading-none">Hello. <CommonTypewriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
-            <p class="text-stone-500 m-0 leading-none">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="text-teal-500 opacity-100 md:text-inherit cursor-pointer md:opacity-60 group-hover:opacity-100 group-hover:text-teal-500 transition-all duration-300 leading-none">Beaulieu Canada</a>, transforming how we experience the internet.</p>
-            <br class="mt-10 md:mt-0 xl:mt-32">
-            <a href="/pchartrandCV.pdf" download style="pointer-events: none;">
-                <Button :label="'view my curriculum'" :action="null" :isBasic="true" />
-            </a>
+    <article class="sticky top-0 h-screen flex items-center pt-12 px-8 lg:px-24">
+        <div class="absolute top-0 left-0 h-full w-full transition-all duration-500" :class="blurLevel" />
+        <div class="text-4xl lg:text-6xl">
+            <p class="prose-light-bright flex gap-2 h-28 lg:h-auto">Hello. <TypeWriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
+            <p class="prose-dark-slim ">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="prose-theme-slim">Beaulieu Canada</a>, transforming how we experience the internet.</p>
+            <br>
+            <CommonButton class="relative z-10" :isDark="true">
+                <template #label>
+                    view my curriculum
+                </template>
+            </CommonButton>
         </div>
     </article>
-    <section id="about" class="py-20 xl:py-0 xl:min-h-screen h-full flex md:items-center">
-        <div>
-            <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">A little about myself</p>
-            <p class="md:max-w-2xl text-stone-500 font-medium leading-snug text-xl my-5">
-                <img class="md:hidden float-right grayscale sepia-[35%] rounded-full w-32 h-fit mt-5 mx-2.5" src="@/assets/images/profil.jpeg" />
-                I bring over five years of experience in front-end development and website management, with a passion for editing 3D animations and writing contents.
-            </p>
-            <p class="md:max-w-2xl text-stone-500 font-medium leading-snug text-xl my-5">
-                The technologies I frequently work with include <span class="text-teal-500 font-medium leading-snug">CSS, HTML, JavaScript, Nuxt3, WordPress, Node.JS, SQL, Vite,</span> and various libraries.
-            </p>
-            <CommonTable />
+    <section ref="element" id="projects" class="relative z-20 bg-stone-900 h-full flex flex-col items-center pt-5 pb-32 px-8 lg:px-24">
+        <h2 class="prose-light-slim text-5xl py-20 w-full text-left">Featured <span class="prose-light-bright">Projects</span></h2>
+        <div class="w-full flex flex-col lg:flex-row gap-10 justify-between items-stretch">
+            <CommonCard>
+                <template #image>
+                    <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/big.png" alt="" />
+                </template>
+                <template #text>
+                    <p class="prose-light-bright text-2xl mb-3 mt-0 group-hover:mt-5 transition-all duration-500">Beaulieu Canada</p>
+                    <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">Modern UI and browsing experience with Vue framework.</p>
+                    <div class="pt-1.5">
+                        <CommonBadge>
+                            Nuxt.JS
+                        </CommonBadge>
+                        <CommonBadge>
+                            TypeScript
+                        </CommonBadge>
+                        <CommonBadge>
+                            API
+                        </CommonBadge>
+                    </div>
+                </template>
+            </CommonCard>
+            <CommonCard>
+                <template #image>
+                    <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/diy.png" alt="" />
+                </template>
+                <template #text>
+                    <p class="prose-light-bright text-2xl mb-3 group-hover:mt-5 transition-all duration-500">DIY Robotics</p>
+                    <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">E-commerce solution with interactive product visualization.</p>
+                    <div class="pt-1.5">
+                        <CommonBadge>
+                            Wordpress
+                        </CommonBadge>
+                        <CommonBadge>
+                            3DS Max
+                        </CommonBadge>
+                        <CommonBadge>
+                            PHP
+                        </CommonBadge>
+                    </div>
+                </template>
+            </CommonCard>
+            <CommonCard>
+                <template #image>
+                    <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/crc.png" alt="" />
+                </template>
+                <template #text>
+                    <p class="prose-light-bright text-2xl mb-3 group-hover:mt-5 transition-all duration-500">Canada Research Chair in Digital Textualities</p>
+                    <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">Digital layouts that elevates editorial content and reading.</p>
+                    <div class="pt-1.5">
+                        <CommonBadge>
+                            XML
+                        </CommonBadge>
+                        <CommonBadge>
+                            MARKDOWN
+                        </CommonBadge>
+                        <CommonBadge>
+                            CSS
+                        </CommonBadge>
+                    </div>
+                </template>
+            </CommonCard>
         </div>
-        <img class="hidden md:block rounded-full grayscale sepia-[35%] w-full h-fit min-w-40 max-w-xs mx-auto mt-32 md:mt-0" src="@/assets/images/profil.jpeg" />
     </section>
-    <section id="projects" class="py-20 xl:py-0 pb-20 xl:pb-32 xl:min-h-screen h-full">
-        <p class="text-3xl md:text-5xl text-amber-50 font-medium mb-10">Some of my projects</p>
-       <CommonMasonry />
+    <section id="expertise" class="relative z-30 flex flex-col items-center bg-stone-800 px-8 lg:px-24 pt-5 pb-32">
+        <h2 class="prose-light-slim text-5xl py-20 w-full text-left">Technical <span class="prose-light-bright">Skills</span></h2>
+        <div class="w-full flex flex-col lg:flex-row gap-8">
+            <div class="lg:flex-1 flex flex-col justify-center gap-4 h-40 bg-stone-900 shadow rounded-md">
+                <svg class="mx-auto" fill="#99f6e4" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88c1.38-2.13 1.88-3.96 1.13-4.7c-.74-.75-2.57-.25-4.7 1.13c.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88c-1.38 2.13-1.88 3.96-1.13 4.7c.74.75 2.57.25 4.7-1.13c-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7c.52-.63 1.08-1.26 1.69-1.88c.62-.61 1.25-1.17 1.88-1.69c-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91c.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7c-.52.63-1.08 1.26-1.69 1.88c-.62.61-1.25 1.17-1.88 1.69c2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+                <p class="prose-light-bright text-2xl text-center">Frontend Development</p>
+            </div>
+            <div class="lg:flex-1 flex flex-col justify-center gap-4 h-40 bg-stone-900 shadow rounded-md">
+                <svg class="mx-auto" fill="#99f6e4" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24"><path d="M17.5 12a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 17.5 9a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-3-4A1.5 1.5 0 0 1 13 6.5A1.5 1.5 0 0 1 14.5 5A1.5 1.5 0 0 1 16 6.5A1.5 1.5 0 0 1 14.5 8m-5 0A1.5 1.5 0 0 1 8 6.5A1.5 1.5 0 0 1 9.5 5A1.5 1.5 0 0 1 11 6.5A1.5 1.5 0 0 1 9.5 8m-3 4A1.5 1.5 0 0 1 5 10.5A1.5 1.5 0 0 1 6.5 9A1.5 1.5 0 0 1 8 10.5A1.5 1.5 0 0 1 6.5 12M12 3a9 9 0 0 0-9 9a9 9 0 0 0 9 9a1.5 1.5 0 0 0 1.5-1.5c0-.39-.15-.74-.39-1c-.23-.27-.38-.62-.38-1a1.5 1.5 0 0 1 1.5-1.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8"/></svg>
+                <p class="prose-light-bright text-2xl text-center">UX Design</p>
+            </div>
+            <div class="lg:flex-1 flex flex-col justify-center gap-4 h-40 bg-stone-900 shadow rounded-md">
+                <svg class="mx-auto" fill="#99f6e4" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15L6.04 7.5L12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+                <p class="prose-light-bright text-2xl text-center">3D Animation</p>
+            </div>
+            <div class="lg:flex-1 flex flex-col justify-center gap-4 h-40 bg-stone-900 shadow rounded-md">
+                <svg class="mx-auto" fill="#99f6e4" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24"><path d="M16 18H7V4h9m-4.5 18a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m4-21h-8A2.5 2.5 0 0 0 5 3.5v17A2.5 2.5 0 0 0 7.5 23h8a2.5 2.5 0 0 0 2.5-2.5v-17A2.5 2.5 0 0 0 15.5 1z" /></svg>
+                <p class="prose-light-bright text-2xl text-center">Responsive User Interface</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="relative z-40 bg-stone-900 h-full pb-32 pt-5 px-8 lg:px-24">
+        <h2 class="prose-light-slim text-5xl pt-20 w-full text-center">Let's Create <span class="prose-light-bright">Together</span></h2>
+        <p class="prose-light-slim text-2xl text-center mt-5">Have a project in mind? Let's bring your vision to life.</p>
+        <CommonForm />
     </section>
 </template>
+
+<style>
+    body:has(.blur) header {
+        @apply -z-10;
+    }
+</style>

@@ -4,7 +4,6 @@ import { useWindowScroll, useWindowSize } from '@vueuse/core'
 const { width } = useWindowSize()
 const { y } = useWindowScroll()
 
-const isLoading = ref<boolean>(true)
 const isMouseOver = ref<boolean>(false)
 const isClicked = ref<boolean>(false)
 const isTimeout = ref<boolean>(false)
@@ -53,58 +52,45 @@ watch(width, () => {
         })
     }
 })
-
-onBeforeMount(() => {
-    const nuxtApp = useNuxtApp()
-    nuxtApp.hook("page:finish", () => {
-        window.scrollTo(0, 0)
-    })
-})
-
-onMounted(() => {
-    const router = useRouter()
-    router.push({ hash: undefined })
-
-    setTimeout(() => {
-        isLoading.value = false
-    }, 4000)
-})
 </script>
 
 <template>
-    <header class="px-10 md:px-20 w-full h-28 relative fixed... left-0 z-10 flex justify-between items-center transition-all duration-300" :class="{ '-top...-[130px] top-0 ': y > 200, 'top-0 ': y <= 200 }">
-        <img class="w-40 h-40 -ml-8 -mt-6 grayscale sepia-[35%] invert" src="@/assets/images/signature.png" @click="useRoute().path === '/' ? null : navigateTo('/')" @dblclick="useRoute().path === '/' ? navigateTo('/login') : null" />
-        <nav v-if="useRoute().path === '/'" class="hidden md:flex items-center gap-10">
-            <Anchor :text="'About'" :link="'#about'" />
-            <Anchor :text="'Projects'" :link="'#projects'" />
-            <Button :label="'contact'" :action="{ subject: 'nuxtlink', code: 'mailto:patrick.chartrand@umontreal.ca' }" :isBasic="false" />
+    <header class="px-8 lg:px-24 w-full h-20 flex fixed lg:relative z-10 top-0 left-0 justify-between items-center transition-all duration-300">
+        <img class="w-40 h-40 -ml-8 mt-4 grayscale invert" src="@/assets/medias/signature.png" />
+        <nav class="hidden lg:flex items-center gap-10">
+            <a href="#projects" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
+            <a href="#expertise" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Expertise</a>
+            <CommonButton :isDark="false" @click="navigateTo('#contact')">
+                <template #label>
+                    Contact
+                </template>
+            </CommonButton>
         </nav>
-        <button v-if="useRoute().path === '/'" type="button" class="w-fit h-fit md:hidden grid items-center rounded-full bg-amber-50 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-        </button>
+        <aside class="lg:hidden">
+            <button v-if="!isClicked && !isTimeout" type="button" class="w-fit h-fit lg:hidden fixed z-30 top-6 right-10 grid items-center rounded-full bg-stone-100 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <div class="lg:hidden flex justify-center items-center absolute transition-all duration-[500ms]" :class="isClicked ? 'w-full h-screen z-30 top-0 right-0 rounded-none bg-[#0e0d0a]' : 'h-[64px] w-[64px] z-0 top-6 right-10 rounded-full bg-stone-100'">
+                <button v-if="isClicked && isTimeout" type="button" class="w-fit h-fit absolute z-30 top-6 right-10 rounded-full bg-stone-100 p-4 hover:cursor-pointer"  @click="isClicked = !isClicked">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <ul v-if="isClicked && isTimeout">
+                    <li class="my-6 text-4xl text-stone-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#projects')">01 PROJECTS</li>
+                    <li class="my-6 text-4xl text-stone-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#expertise')">02 EXPERTISE</li>
+                    <li class="my-6 text-4xl text-teal-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#contact')">03 CONTACT</li>
+                </ul>
+            </div>
+        </aside>
     </header>
-    <aside class="md:hidden flex justify-center items-center absolute transition-all duration-[500ms]" :class="isClicked ? 'w-full h-screen z-20 top-0 right-0 rounded-none bg-[#0e0d0a]' : 'h-[64px] w-[64px] z-0 top-6 right-10 rounded-full bg-amber-50'">
-        <button v-if="isClicked && isTimeout" type="button" class="w-fit h-fit absolute z-30 top-6 right-10 rounded-full bg-amber-50 p-4 hover:cursor-pointer"  @click="isClicked = !isClicked">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <ul v-if="isClicked && isTimeout">
-            <li class="my-6 text-4xl text-stone-500 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#about')">01 ABOUT</li>
-            <li class="my-6 text-4xl text-stone-500 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#projects')">02 PROJECTS</li>
-            <li class="my-6 text-4xl text-teal-500 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('mailto:patrick.chartrand@umontreal.ca', { external: true })">03 CONTACT</li>
-        </ul>
-    </aside>
-    <main class="px-10 md:px-20">
-        <div v-if="isLoading" class="bg-[#0b0b0b] absolute z-50 top-0 left-0 h-screen w-screen flex items-center justify-center">
-            <i class="loader" />
-        </div>
+    <main>
         <slot />
-    </main>
-    <footer class="md:flex flex-row-reverse justify-between items-center px-10 md:px-20 my-3">
-        <div class="text-amber-50 flex justify-center md:justify-start items-center gap-3">
+    </main> 
+    <footer class="lg:flex flex-row-reverse justify-between items-center px-10 lg:px-20 my-3">
+        <div class="text-stone-100 flex justify-center lg:justify-start items-center gap-3">
             <NuxtLink to="https://www.linkedin.com/in/patrick-chartrand-6b4331235/" target="_blank">
                 <svg style="margin-top: -5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20"><path fill="currentColor" d="M5 3c0 1.062-.71 1.976-2.001 1.976C1.784 4.976 1 4.114 1 3.052C1 1.962 1.76 1 3 1s1.976.91 2 2M1 19V6h4v13zm6-8.556c0-1.545-.051-2.836-.102-3.951h3.594l.178 1.723h.076c.506-.811 1.746-2 3.822-2C17.1 6.216 19 7.911 19 11.558V19h-4v-6.861c0-1.594-.607-2.81-2-2.81c-1.062 0-1.594.86-1.873 1.569c-.102.254-.127.608-.127.963V19H7z"/></svg>
             </NuxtLink>
@@ -115,8 +101,27 @@ onMounted(() => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><path fill="currentColor" d="M17.316 6.246q.011.244.011.488c0 4.99-3.797 10.742-10.74 10.742c-2.133 0-4.116-.625-5.787-1.697a7.58 7.58 0 0 0 5.588-1.562a3.78 3.78 0 0 1-3.526-2.621a3.86 3.86 0 0 0 1.705-.065a3.78 3.78 0 0 1-3.028-3.703v-.047a3.8 3.8 0 0 0 1.71.473a3.775 3.775 0 0 1-1.168-5.041a10.72 10.72 0 0 0 7.781 3.945a3.8 3.8 0 0 1-.097-.861a3.773 3.773 0 0 1 3.774-3.773a3.77 3.77 0 0 1 2.756 1.191a7.6 7.6 0 0 0 2.397-.916a3.8 3.8 0 0 1-1.66 2.088a7.6 7.6 0 0 0 2.168-.594a7.6 7.6 0 0 1-1.884 1.953"/></svg>
             </NuxtLink>
         </div>
-        <h1 class="text-amber-50 font-medium tracking-wider text-base text-center md:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>
+        <h1 class="text-stone-100 font-medium tracking-wider text-base text-center lg:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>
     </footer>
 </template>
 
-
+<style>
+    .prose-light-bright {
+        @apply text-stone-100 font-medium leading-none;
+    }
+    .prose-dark-bright {
+        @apply text-stone-500 font-medium leading-none;
+    }
+    .prose-theme-bright {
+        @apply text-teal-200 font-medium leading-none;
+    }
+    .prose-light-slim {
+        @apply text-stone-100 font-light leading-none;
+    }
+    .prose-dark-slim {
+        @apply text-stone-500 font-light leading-none;
+    }
+    .prose-theme-slim {
+        @apply text-teal-200 font-light leading-none;
+    }
+</style>

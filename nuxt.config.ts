@@ -17,21 +17,38 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: false },
-  css: ['~/assets/css/style.css', '~/assets/css/animation.css'],
+  css: ['~/assets/css/style.css'],
   modules: [
     // https://vueuse.org/
-    '@vueuse/nuxt',
+    '@vueuse/nuxt', 
     // https://v8.i18n.nuxtjs.org/
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n', 
     // https://pinia.vuejs.org/core-concepts/
-    '@pinia/nuxt',
+    '@pinia/nuxt', 
     // https://nuxt.com/modules/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://firebase.nuxtjs.org
+    //'@nuxtjs/firebase'
+    // https://nuxt.com/modules/nuxt-pdf
+    // '@sidebase/nuxt-pdf'
   ],
   components: {
     dirs: ['components'],
     global: true,
   },
+  /*firebase: {
+    config: {
+      apiKey: "AIzaSyABLlatSBRogilyvhy828-P89mwdbZD_r8",
+      authDomain: "peppermint-40421.firebaseapp.com",
+      projectId: "peppermint-40421",
+      storageBucket: "peppermint-40421.firebasestorage.app",
+      messagingSenderId: "159788776768",
+      appId: "1:159788776768:web:7a63f76380cc7682bb8ea5"
+    },
+    services: {
+      auth: true
+    }
+  }*/
   /**
   i18n: {
     defaultLocale: 'en',
@@ -44,5 +61,3 @@ export default defineNuxtConfig({
   },
   */
 })
-
-

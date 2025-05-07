@@ -22,7 +22,8 @@ html, body {
     font-family: Josefin sans,sans-serif;
     font-weight: 200;
     letter-spacing: .15em;
-    background: #0b0b0b;
+    margin: 0;
+    background-color: #1c1917;
 }
 
 html {
@@ -31,9 +32,9 @@ html {
 }
 
 * {
-    font-family: Inter, sans-serif;
+    font-family: Josefin sans,sans-serif;
     font-weight: 300;
     letter-spacing: -.5px;
-    line-height: 48px;
+    line-height: 30px;
     box-sizing: border-box;
 }
