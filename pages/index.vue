@@ -131,6 +131,6 @@ onMounted(() => {
 
 <style>
     body:has(.blur) header {
-        @apply -z-10;
+        @apply z-0;
     }
 </style>
