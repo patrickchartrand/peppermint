@@ -67,12 +67,12 @@ watch(width, () => {
             </CommonButton>
         </nav>
         <aside class="lg:hidden">
-            <button v-if="!isClicked && !isTimeout" type="button" class="w-fit h-fit lg:hidden fixed z-30 top-6 right-10 grid items-center rounded-full bg-stone-100 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
+            <button v-if="!isClicked && !isTimeout" type="button" class="w-fit h-fit lg:hidden fixed z-30 top-5 right-10 grid items-center rounded-full bg-stone-100 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-            <div class="lg:hidden flex justify-center items-center absolute transition-all duration-[500ms]" :class="isClicked ? 'w-full h-screen z-30 top-0 right-0 rounded-none bg-stone-900' : 'h-[64px] w-[64px] z-0 top-6 right-10 rounded-full bg-stone-100'">
+            <div class="lg:hidden flex justify-center items-center absolute transition-all duration-[500ms]" :class="isClicked ? 'w-full h-screen z-30 top-0 right-0 rounded-none bg-stone-900' : 'h-[64px] w-[64px] z-0 top-5 right-10 rounded-full bg-stone-100'">
                 <button v-if="isClicked && isTimeout" type="button" class="w-fit h-fit absolute z-30 top-6 right-10 rounded-full bg-stone-100 p-4 hover:cursor-pointer"  @click="isClicked = !isClicked">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
