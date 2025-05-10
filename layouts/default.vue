@@ -60,7 +60,7 @@ watch(width, () => {
         <nav class="hidden lg:flex items-center gap-10">
             <a href="#projects" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
             <a href="#expertise" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Expertise</a>
-            <CommonButton :isDark="false" @click="navigateTo('#contact')">
+            <CommonButton :isDark="false" :type="'button'" @click="navigateTo('#contact')">
                 <template #label>
                     Contact
                 </template>

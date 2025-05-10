@@ -31,10 +31,26 @@ export default defineNuxtConfig({
     //'@nuxtjs/firebase'
     // https://nuxt.com/modules/nuxt-pdf
     // '@sidebase/nuxt-pdf'
+    //https://nuxt.com/modules/nuxt-mail
+    'nuxt-mail'
   ],
   components: {
     dirs: ['components'],
     global: true,
+  },
+  mail: {
+    message: {
+      to: process.env.NUXT_MAIL_TARGET,
+    },
+    smtp: {
+      host: process.env.NUXT_MAIL_SMPT,
+      port: process.env.NUXT_MAIL_PORT,
+      secure: true,
+      auth: {
+        user: process.env.NUXT_MAIL_USERNAME,
+        pass: process.env.NUXT_MAIL_PASSWORD,
+      }
+    },
   },
   /**
   i18n: {
@@ -47,4 +63,4 @@ export default defineNuxtConfig({
     ],
   },
   */
-})
+} as Configs)

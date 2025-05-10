@@ -29,7 +29,7 @@ onMounted(() => {
             <p class="prose-light-bright flex gap-2 h-28 lg:h-auto">Hello. <TypeWriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
             <p class="prose-dark-slim ">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="prose-theme-slim">Beaulieu Canada</a>, transforming how we experience the internet.</p>
             <br>
-            <CommonButton class="relative z-10" :isDark="true">
+            <CommonButton class="relative z-10" :isDark="true" :type="'button'">
                 <template #label>
                     view my curriculum
                 </template>
@@ -37,9 +37,9 @@ onMounted(() => {
         </div>
     </article>
     <section ref="element" id="projects" class="relative z-20 bg-stone-900 h-full flex flex-col items-center pt-5 pb-32 px-8 lg:px-24">
-        <h2 class="prose-light-slim text-5xl py-20 w-full text-left">Featured <span class="prose-light-bright">Projects</span></h2>
+        <h2 class="prose-light-slim text-4xl lg:text-5xl py-20 w-full text-left">Featured <span class="prose-light-bright">Projects</span></h2>
         <div class="w-full flex flex-col lg:flex-row gap-10 justify-between items-stretch">
-            <CommonCard>
+            <CommonCard @click="navigateTo('https://www.beaulieucanada.com', { open: { target: '_blank' } })">
                 <template #image>
                     <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/big.png" alt="" />
                 </template>
@@ -48,18 +48,24 @@ onMounted(() => {
                     <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">Modern UI and browsing experience with Vue framework.</p>
                     <div class="pt-1.5">
                         <CommonBadge>
-                            Nuxt.JS
+                            Vue & Nuxt
                         </CommonBadge>
                         <CommonBadge>
                             TypeScript
                         </CommonBadge>
                         <CommonBadge>
-                            API
+                            Figma
+                        </CommonBadge>
+                        <CommonBadge>
+                            JavaScript
+                        </CommonBadge>
+                        <CommonBadge>
+                            Node.JS
                         </CommonBadge>
                     </div>
                 </template>
             </CommonCard>
-            <CommonCard>
+            <CommonCard @click="navigateTo('https://diy-robotics.com', { open: { target: '_blank' } })">
                 <template #image>
                     <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/diy.png" alt="" />
                 </template>
@@ -76,10 +82,16 @@ onMounted(() => {
                         <CommonBadge>
                             PHP
                         </CommonBadge>
+                        <CommonBadge>
+                            JQuery
+                        </CommonBadge>
+                        <CommonBadge>
+                            SEO
+                        </CommonBadge>
                     </div>
                 </template>
             </CommonCard>
-            <CommonCard>
+            <CommonCard @click="navigateTo('https://www.ecrituresnumeriques.ca/', { open: { target: '_blank' } })">
                 <template #image>
                     <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/crc.png" alt="" />
                 </template>
@@ -102,7 +114,7 @@ onMounted(() => {
         </div>
     </section>
     <section id="expertise" class="relative z-30 flex flex-col items-center bg-stone-800 px-8 lg:px-24 pt-5 pb-32">
-        <h2 class="prose-light-slim text-5xl py-20 w-full text-left">Technical <span class="prose-light-bright">Skills</span></h2>
+        <h2 class="prose-light-slim text-4xl lg:text-5xl py-20 w-full text-left">Technical <span class="prose-light-bright">Skills</span></h2>
         <div class="w-full flex flex-col lg:flex-row gap-8">
             <div class="lg:flex-1 flex flex-col justify-center gap-4 h-40 bg-stone-900 shadow rounded-md">
                 <svg class="mx-auto" fill="#99f6e4" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88c1.38-2.13 1.88-3.96 1.13-4.7c-.74-.75-2.57-.25-4.7 1.13c.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88c-1.38 2.13-1.88 3.96-1.13 4.7c.74.75 2.57.25 4.7-1.13c-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7c.52-.63 1.08-1.26 1.69-1.88c.62-.61 1.25-1.17 1.88-1.69c-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91c.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7c-.52.63-1.08 1.26-1.69 1.88c-.62.61-1.25 1.17-1.88 1.69c2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
@@ -123,8 +135,8 @@ onMounted(() => {
         </div>
     </section>
     <section id="contact" class="relative z-40 bg-stone-900 h-full pb-32 pt-5 px-8 lg:px-24">
-        <h2 class="prose-light-slim text-5xl pt-20 w-full text-center">Let's Create <span class="prose-light-bright">Together</span></h2>
-        <p class="prose-light-slim text-2xl text-center mt-5">Have a project in mind? Let's bring your vision to life.</p>
+        <h2 class="prose-light-slim text-4xl lg:text-5xl pt-20 w-full text-center">Let's Create <span class="prose-light-bright">Together</span></h2>
+        <p class="prose-light-slim text-xl lg:text-2xl text-center mt-5">Have a project in mind? Let's bring your vision to life.</p>
         <CommonForm />
     </section>
 </template>
