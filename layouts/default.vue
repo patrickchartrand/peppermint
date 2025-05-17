@@ -55,7 +55,7 @@ watch(width, () => {
 </script>
 
 <template>
-    <header class="px-8 lg:px-24 w-full h-20 flex fixed lg:relative z-10 top-0 left-0 justify-between items-center transition-all duration-300">
+    <header class="px-8 lg:px-24 w-full h-20 flex lg:sticky z-10 top-0 left-0 justify-between items-center transition-all duration-300">
         <img class="w-40 h-40 -ml-8 mt-4 grayscale invert" src="@/assets/medias/signature.png" />
         <nav class="hidden lg:flex items-center gap-10">
             <a href="#projects" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
@@ -86,7 +86,7 @@ watch(width, () => {
             </div>
         </aside>
     </header>
-    <main>
+    <main class="-mt-20">
         <slot />
     </main> 
     <footer class="lg:flex flex-row-reverse justify-between items-center px-8 lg:px-24 my-3">
@@ -97,8 +97,8 @@ watch(width, () => {
             <NuxtLink to="https://github.com/patrickchartrand" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><path fill="currentColor" d="M13.18 11.309c-.718 0-1.3.807-1.3 1.799c0 .994.582 1.801 1.3 1.801s1.3-.807 1.3-1.801c-.001-.992-.582-1.799-1.3-1.799m4.526-4.683c.149-.365.155-2.439-.635-4.426c0 0-1.811.199-4.551 2.08c-.575-.16-1.548-.238-2.519-.238c-.973 0-1.945.078-2.52.238C4.74 2.399 2.929 2.2 2.929 2.2c-.789 1.987-.781 4.061-.634 4.426C1.367 7.634.8 8.845.8 10.497c0 7.186 5.963 7.301 7.467 7.301l1.734.002l1.732-.002c1.506 0 7.467-.115 7.467-7.301c0-1.652-.566-2.863-1.494-3.871m-7.678 10.289h-.056c-3.771 0-6.709-.449-6.709-4.115c0-.879.31-1.693 1.047-2.369C5.537 9.304 7.615 9.9 9.972 9.9h.056c2.357 0 4.436-.596 5.664.531c.735.676 1.045 1.49 1.045 2.369c0 3.666-2.937 4.115-6.709 4.115m-3.207-5.606c-.718 0-1.3.807-1.3 1.799c0 .994.582 1.801 1.3 1.801s1.301-.807 1.301-1.801c0-.992-.582-1.799-1.301-1.799"/></svg>
             </NuxtLink>
-            <NuxtLink to="https://x.com/p_chartrand" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><path fill="currentColor" d="M17.316 6.246q.011.244.011.488c0 4.99-3.797 10.742-10.74 10.742c-2.133 0-4.116-.625-5.787-1.697a7.58 7.58 0 0 0 5.588-1.562a3.78 3.78 0 0 1-3.526-2.621a3.86 3.86 0 0 0 1.705-.065a3.78 3.78 0 0 1-3.028-3.703v-.047a3.8 3.8 0 0 0 1.71.473a3.775 3.775 0 0 1-1.168-5.041a10.72 10.72 0 0 0 7.781 3.945a3.8 3.8 0 0 1-.097-.861a3.773 3.773 0 0 1 3.774-3.773a3.77 3.77 0 0 1 2.756 1.191a7.6 7.6 0 0 0 2.397-.916a3.8 3.8 0 0 1-1.66 2.088a7.6 7.6 0 0 0 2.168-.594a7.6 7.6 0 0 1-1.884 1.953"/></svg>
+            <NuxtLink to="https://bsky.app/profile/pchartrand.bsky.social" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565C.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479c.815 2.736 3.713 3.66 6.383 3.364c.136-.02.275-.039.415-.056c-.138.022-.276.04-.415.056c-3.912.58-7.387 2.005-2.83 7.078c5.013 5.19 6.87-1.113 7.823-4.308c.953 3.195 2.05 9.271 7.733 4.308c4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056c2.67.297 5.568-.628 6.383-3.364c.246-.828.624-5.79.624-6.478c0-.69-.139-1.861-.902-2.206c-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8"/></svg>           
             </NuxtLink>
         </div>
         <h1 class="text-stone-100 font-medium tracking-wider text-base text-center lg:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>

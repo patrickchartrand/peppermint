@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",
-    "nuxt-mail": "^6.0.1"
+    "nuxt-mail": "^6.0.1",
+    "vue-dragscroll": "^4.0.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.4",
