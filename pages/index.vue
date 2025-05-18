@@ -56,19 +56,19 @@ onMounted(() => {
                     <p class="prose-light-bright text-2xl mb-3 mt-0 group-hover:mt-5 transition-all duration-500">Beaulieu Canada</p>
                     <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">Modern UI and browsing experience with Vue framework.</p>
                     <div class="pt-1.5">
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-sky-200 text-sky-800'">
                             Vue & Nuxt
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-sky-200 text-sky-800'">
                             TypeScript
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-sky-200 text-sky-800'">
                             Figma
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-sky-200 text-sky-800'">
                             JavaScript
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-sky-200 text-sky-800'">
                             Node.JS
                         </CommonBadge>
                     </div>
@@ -82,19 +82,19 @@ onMounted(() => {
                     <p class="prose-light-bright text-2xl mb-3 group-hover:mt-5 transition-all duration-500">DIY Robotics</p>
                     <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">E-commerce solution with interactive product visualization.</p>
                     <div class="pt-1.5">
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-amber-200 text-amber-800'">
                             Wordpress
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-amber-200 text-amber-800'">
                             3DS Max
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-amber-200 text-amber-800'">
                             PHP
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-amber-200 text-amber-800'">
                             JQuery
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-amber-200 text-amber-800'">
                             SEO
                         </CommonBadge>
                     </div>
@@ -102,22 +102,22 @@ onMounted(() => {
             </CommonCard>
             <CommonCard @click="navigateTo('https://www.ecrituresnumeriques.ca/', { open: { target: '_blank' } })">
                 <template #image>
-                    <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500" src="@/assets/medias/crc.png" alt="" />
+                    <img class="rounded-t-lg w-full h-64 group-hover:scale-110 transition-all duration-500 object-cover brightness-200" src="@/assets/medias/crc.png" alt="" />
                 </template>
                 <template #text>
                     <p class="prose-light-bright text-2xl mb-3 group-hover:mt-5 transition-all duration-500">Canada Research Chair in Digital Textualities</p>
                     <p class="prose-dark-bright text-lg mb-3 group-hover:mb-8 transition-all duration-500">Digital layouts that elevates editorial content and reading.</p>
                     <div class="pt-1.5">
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-indigo-200 text-indigo-800'">
                             XML
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-indigo-200 text-indigo-800'">
                             MARKDOWN
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-indigo-200 text-indigo-800'">
                             CSS
                         </CommonBadge>
-                        <CommonBadge>
+                        <CommonBadge :theme="'bg-indigo-200 text-indigo-800'">
                             HTML
                         </CommonBadge>
                     </div>

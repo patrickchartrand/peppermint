@@ -55,7 +55,7 @@ watch(width, () => {
 </script>
 
 <template>
-    <header class="px-8 lg:px-24 w-full h-20 flex lg:sticky z-10 top-0 left-0 justify-between items-center transition-all duration-300">
+    <header class="px-8 lg:px-24 w-full h-20 flex sticky z-10 top-0 left-0 justify-between items-center transition-all duration-300">
         <img class="w-40 h-40 -ml-8 mt-4 grayscale invert" src="@/assets/medias/signature.png" />
         <nav class="hidden lg:flex items-center gap-10">
             <a href="#projects" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
