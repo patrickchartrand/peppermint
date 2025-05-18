@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useWindowScroll, useElementBounding } from '@vueuse/core'
+import useMetaData from '@/composables/useMetaData'
 
 const isLoading = ref<boolean>(true)
 const element = ref<HTMLElement | null>()
@@ -23,6 +24,8 @@ const blurLevel = computed(() => {
 })
 
 onMounted(() => {
+    useMetaData()
+    
     setTimeout(() => {
         isLoading.value = false
     }, 4000)

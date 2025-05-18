@@ -1,8 +1,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Patrick Chartrand',
-      titleTemplate: '%s - Patrick Chartrand',
+      title: 'Patrick Chartrand', // titleTemplate: '%s - Patrick Chartrand',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,20 +18,13 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/style.css'],
   modules: [
-    // https://vueuse.org/
     '@vueuse/nuxt', 
-    // https://v8.i18n.nuxtjs.org/
     '@nuxtjs/i18n', 
-    // https://pinia.vuejs.org/core-concepts/
     '@pinia/nuxt', 
-    // https://nuxt.com/modules/tailwindcss
     '@nuxtjs/tailwindcss',
-    // https://firebase.nuxtjs.org
-    //'@nuxtjs/firebase'
-    // https://nuxt.com/modules/nuxt-pdf
-    // '@sidebase/nuxt-pdf'
-    //https://nuxt.com/modules/nuxt-mail
     'nuxt-mail'
+    //'@nuxtjs/firebase'
+    // '@sidebase/nuxt-pdf'
   ],
   components: {
     dirs: ['components'],
@@ -52,7 +44,9 @@ export default defineNuxtConfig({
       }
     },
   },
-  /**
+} as Configs)
+
+/*
   i18n: {
     defaultLocale: 'en',
     strategy: 'prefix',
@@ -62,5 +56,4 @@ export default defineNuxtConfig({
       { code: 'fr', iso: 'fr-CA', name: 'Français', file: 'fr.json' },
     ],
   },
-  */
-} as Configs)
+*/
