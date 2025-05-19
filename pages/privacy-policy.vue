@@ -42,8 +42,8 @@ In accordance with Law 25, you have the right to:
 To exercise these rights, contact myself at patrick.chartrand@umontreal.ca.
 
 7. Person Responsible for Personal Information
-    Name: Patrick Chartrand
-    Email: patrick.chartrand@umontreal.ca
+Name: Patrick Chartrand
+Email: patrick.chartrand@umontreal.ca
 
 8. Changes to This Policy
 This Privacy Policy may be updated from time to time. The latest version will always be available on this page.
