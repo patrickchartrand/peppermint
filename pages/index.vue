@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
     <article class="relative lg:sticky top-32 lg:top-48 lg:top- px-8 lg:px-24 h-screen">
-        <div class="absolute -top-32 lg:-top-48 left-0 h-full w-full transition-all duration-500 hidden lg:block" :class="blurLevel" />
+        <div class="absolute -top-32 lg:-top-48 left-0 h-full w-full transition-all duration-700 hidden lg:block" :class="blurLevel" />
         <div class="text-4xl lg:text-6xl">
             <p class="prose-light-bright flex gap-2 h-28 lg:h-auto">Hello. <TypeWriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
             <p class="prose-dark-slim ">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="prose-theme-slim">Beaulieu Canada</a>, transforming how we experience the internet.</p>

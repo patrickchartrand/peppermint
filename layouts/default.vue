@@ -56,7 +56,7 @@ watch(width, () => {
 </script>
 
 <template>
-    <header :class="{ 'top-0': y < 150, '-top-80 lg:top-0': y > 150 }" class="bg-stone-900 px-8 lg:px-24 w-full h-28 flex sticky z-[999] lg:z-10 left-0 justify-between items-center transition-all duration-700">
+    <header :class="{ 'top-0': y < 150, '-top-80 lg:top-0': y > 150 }" class="bg-stone-900 px-8 lg:px-24 w-full h-28 flex sticky z-[999] lg:z-10 left-0 justify-between items-center transition-all duration-700 lg:duration-0">
         <img :class="{ 'top-0': y < 150, '-top-80 lg:top-0': y > 150 }" class="transition-all duration-700 relative w-40 h-40 -ml-8 -mt-8 grayscale invert cursor-pointer" src="@/assets/medias/signature.png" @click="navigateTo('/')" />
         <nav class="hidden lg:flex items-center gap-10">
             <a :href="route.name === 'index' ? '#projects' : '/'" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
