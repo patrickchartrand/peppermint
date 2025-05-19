@@ -56,8 +56,8 @@ watch(width, () => {
 </script>
 
 <template>
-    <header :class="{ 'sticky ': route.name === 'index', }" class="bg-stone-900 px-8 lg:px-24 w-full h-20 flex z-10 top-0 left-0 justify-between items-center transition-all duration-300">
-        <img class="w-40 h-40 -ml-8 mt-4 grayscale invert cursor-pointer" src="@/assets/medias/signature.png" @click="navigateTo('/')" />
+    <header :class="{ 'top-0': y < 150, '-top-80 lg:top-0': y > 150 }" class="bg-stone-900 px-8 lg:px-24 w-full h-28 flex sticky z-[999] lg:z-10 left-0 justify-between items-center transition-all duration-700">
+        <img :class="{ 'top-0': y < 150, '-top-80 lg:top-0': y > 150 }" class="transition-all duration-700 relative w-40 h-40 -ml-8 -mt-8 grayscale invert cursor-pointer" src="@/assets/medias/signature.png" @click="navigateTo('/')" />
         <nav class="hidden lg:flex items-center gap-10">
             <a :href="route.name === 'index' ? '#projects' : '/'" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
             <a :href="route.name === 'index' ? '#expertise' : '/'" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Expertise</a>
@@ -68,12 +68,12 @@ watch(width, () => {
             </CommonButton>
         </nav>
         <nav class="lg:hidden">
-            <button v-if="!isClicked && !isTimeout" type="button" class="w-fit h-fit lg:hidden fixed z-30 top-5 right-10 grid items-center rounded-full bg-stone-100 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
+            <button v-if="!isClicked && !isTimeout" type="button" class="w-fit h-fit lg:hidden fixed right-10 z-30 grid items-center rounded-full bg-stone-100 p-4 hover:cursor-pointer transition-all duration-700" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver, 'top-5': y < 150, '-top-80 lg:top-0': y > 150 }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-            <div class="lg:hidden flex justify-center items-center absolute transition-all duration-[500ms]" :class="isClicked ? 'w-full h-screen z-30 top-0 right-0 rounded-none bg-stone-900' : 'h-[64px] w-[64px] z-0 top-5 right-10 rounded-full bg-stone-100'">
+            <div class="lg:hidden flex justify-center items-center absolute transition-all duration-[500ms]" :class="isClicked ? 'w-full h-screen z-30 top-0 right-0 rounded-none bg-stone-950' : 'h-[64px] w-[64px] z-0 top-5 right-10 rounded-full bg-transparent'">
                 <button v-if="isClicked && isTimeout" type="button" class="w-fit h-fit absolute z-30 top-6 right-10 rounded-full bg-stone-100 p-4 hover:cursor-pointer"  @click="isClicked = !isClicked">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

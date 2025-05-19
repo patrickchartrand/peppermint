@@ -1,5 +1,5 @@
 <template>
-    <section class="pt-48 pb-24 px-8 lg:px-24">
+    <section class="pt-32 lg:pt-48 pb-24 px-8 lg:px-24">
         <h2 class="prose-light-slim text-4xl lg:text-5xl pb-5 w-full text-left">Privacy <span class="prose-light-bright">Policy</span></h2>
         <div class="w-full">
             <div class="mb-2 flex justify-between items-center">
@@ -7,7 +7,7 @@
             </div>
             <div class="relative bg-black rounded-lg p-4 h-96">
                 <div class="overflow-scroll h-full">
-                    <pre><code id="code-block" class="text-sm text-rose-300 whitespace-pre">
+                    <pre><code id="code-block" class="text-sm text-teal-300 whitespace-pre">
 Effective Date: May 17, 2025
 Website: patrickchartrand.dev
 Contact: patrick.chartrand@umontreal.ca

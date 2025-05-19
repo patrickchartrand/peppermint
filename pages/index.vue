@@ -34,8 +34,8 @@ onMounted(() => {
 
 
 <template>
-    <article class="sticky top-0 flex items-center pt-48 px-8 lg:px-24">
-        <div class="absolute top-0 left-0 h-full w-full transition-all duration-500" :class="blurLevel" />
+    <article class="relative lg:sticky top-32 lg:top-48 lg:top- px-8 lg:px-24 h-screen">
+        <div class="absolute -top-32 lg:-top-48 left-0 h-full w-full transition-all duration-500 hidden lg:block" :class="blurLevel" />
         <div class="text-4xl lg:text-6xl">
             <p class="prose-light-bright flex gap-2 h-28 lg:h-auto">Hello. <TypeWriter v-if="!isLoading" :writing="['I\'m Patrick.', 'I\'m a Javascript enthusiast.', 'I\'m an avid learner.', 'I\'m a digital artisan.']" /></p>
             <p class="prose-dark-slim ">I'm an interdisciplinary frontend Developer living in Granby, Quebec. Currently I work at <a class="prose-theme-slim">Beaulieu Canada</a>, transforming how we experience the internet.</p>
@@ -47,8 +47,7 @@ onMounted(() => {
             </CommonButton>
         </div>
     </article>
-    <section dragscroll ref="element" id="projects" class="relative z-20 bg-stone-900 h-full flex flex-col items-center pt-5 pb-32 px-8 lg:px-24">
-        <svg v-if="y > 0" xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 24 24"><path fill="#fff" d="M3 15v-2h2v2zm0-4V9h2v2zm4 4v-2h2v2zm0-4V9h2v2zm4 4v-2h2v2zm0-4V9h2v2zm4 4v-2h2v2zm0-4V9h2v2zm4 4v-2h2v2zm0-4V9h2v2z"/></svg>
+    <section dragscroll ref="element" id="projects" class="relative z-20 lg:bg-stone-900 h-full flex flex-col items-center pt-5 pb-32 px-8 lg:px-24">
         <h2 class="prose-light-slim text-4xl lg:text-5xl py-20 w-full text-left">Featured <span class="prose-light-bright">Projects</span></h2>
         <div class="w-full flex flex-col lg:flex-row gap-10 justify-between items-center lg:items-stretch">
             <CommonCard @click="navigateTo('https://www.beaulieucanada.com', { open: { target: '_blank' } })">
@@ -161,7 +160,9 @@ onMounted(() => {
 </template>
 
 <style>
-    body:has(.blur) header {
-        z-index: 0;
+    @media (min-width: 1024px) {
+        body:has(.blur) header {
+            z-index: 0;
+        }
     }
 </style>
