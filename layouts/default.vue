@@ -3,6 +3,7 @@ import { useWindowScroll, useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
 const { y } = useWindowScroll()
+const route = useRoute()
 
 const isMouseOver = ref<boolean>(false)
 const isClicked = ref<boolean>(false)
@@ -55,18 +56,18 @@ watch(width, () => {
 </script>
 
 <template>
-    <header class="px-8 lg:px-24 w-full h-20 flex sticky z-10 top-0 left-0 justify-between items-center transition-all duration-300">
-        <img class="w-40 h-40 -ml-8 mt-4 grayscale invert" src="@/assets/medias/signature.png" />
+    <header :class="{ 'sticky ': route.name === 'index', }" class="bg-stone-900 px-8 lg:px-24 w-full h-20 flex z-10 top-0 left-0 justify-between items-center transition-all duration-300">
+        <img class="w-40 h-40 -ml-8 mt-4 grayscale invert cursor-pointer" src="@/assets/medias/signature.png" @click="navigateTo('/')" />
         <nav class="hidden lg:flex items-center gap-10">
-            <a href="#projects" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
-            <a href="#expertise" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Expertise</a>
-            <CommonButton :isDark="false" :type="'button'" @click="navigateTo('#contact')">
+            <a :href="route.name === 'index' ? '#projects' : '/'" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Projects</a>
+            <a :href="route.name === 'index' ? '#expertise' : '/'" class="text-stone-100 hover:text-teal-200 transition-all duration-300 text-xl font-medium">Expertise</a>
+            <CommonButton :isDark="false" :type="'button'" @click="navigateTo(route.name === 'index' ? '#contact' : '/')">
                 <template #label>
                     Contact
                 </template>
             </CommonButton>
         </nav>
-        <aside class="lg:hidden">
+        <nav class="lg:hidden">
             <button v-if="!isClicked && !isTimeout" type="button" class="w-fit h-fit lg:hidden fixed z-30 top-5 right-10 grid items-center rounded-full bg-stone-100 p-4 hover:cursor-pointer" :class="{ 'shadow-md ': isMouseOver, 'shadow ': !isMouseOver }" @mouseenter="isMouseOver = true" @mouseleave="isMouseOver = false" @click="isClicked = !isClicked">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-stone-700">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -79,18 +80,18 @@ watch(width, () => {
                     </svg>
                 </button>
                 <ul v-if="isClicked && isTimeout">
-                    <li class="my-6 text-4xl text-stone-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#projects')">01 PROJECTS</li>
-                    <li class="my-6 text-4xl text-stone-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#expertise')">02 EXPERTISE</li>
-                    <li class="my-6 text-4xl text-teal-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo('#contact')">03 CONTACT</li>
+                    <li class="my-6 text-4xl text-stone-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo(route.name === 'index' ? '#projects' : '/')">01 PROJECTS</li>
+                    <li class="my-6 text-4xl text-stone-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo(route.name === 'index' ? '#expertise' : '/')">02 EXPERTISE</li>
+                    <li class="my-6 text-4xl text-teal-200 hover:cursor-pointer hover:text-5xl transition-all durantion-[3000ms]" @click="onClick(), navigateTo(route.name === 'index' ? '#contact' : '/')">03 CONTACT</li>
                 </ul>
             </div>
-        </aside>
+        </nav>
     </header>
     <main class="-mt-20">
         <slot />
     </main> 
     <footer class="lg:flex flex-row-reverse justify-between items-center px-8 lg:px-24 my-3">
-        <div class="text-stone-100 flex justify-center lg:justify-start items-center gap-3">
+        <div class="text-stone-100 flex justify-center lg:justify-start items-center gap-3 mb-3 lg:mb-0">
             <NuxtLink to="https://www.linkedin.com/in/patrick-chartrand-6b4331235/" target="_blank">
                 <svg style="margin-top: -5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20"><path fill="currentColor" d="M5 3c0 1.062-.71 1.976-2.001 1.976C1.784 4.976 1 4.114 1 3.052C1 1.962 1.76 1 3 1s1.976.91 2 2M1 19V6h4v13zm6-8.556c0-1.545-.051-2.836-.102-3.951h3.594l.178 1.723h.076c.506-.811 1.746-2 3.822-2C17.1 6.216 19 7.911 19 11.558V19h-4v-6.861c0-1.594-.607-2.81-2-2.81c-1.062 0-1.594.86-1.873 1.569c-.102.254-.127.608-.127.963V19H7z"/></svg>
             </NuxtLink>
@@ -101,7 +102,13 @@ watch(width, () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565C.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479c.815 2.736 3.713 3.66 6.383 3.364c.136-.02.275-.039.415-.056c-.138.022-.276.04-.415.056c-3.912.58-7.387 2.005-2.83 7.078c5.013 5.19 6.87-1.113 7.823-4.308c.953 3.195 2.05 9.271 7.733 4.308c4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056c2.67.297 5.568-.628 6.383-3.364c.246-.828.624-5.79.624-6.478c0-.69-.139-1.861-.902-2.206c-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8"/></svg>           
             </NuxtLink>
         </div>
-        <h1 class="text-stone-100 font-medium tracking-wider text-base text-center lg:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>
+        <div>
+            <a class="text-stone-100 gap-1 flex justify-center lg:justify-start items-center font-medium tracking-wider text-base" href="/privacy-policy">
+                <svg class="float-left -mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/></svg>
+                Privacy Policy
+            </a>
+            <h1 class="text-stone-100 font-medium tracking-wider text-base text-center lg:text-start">Designed and developed by&nbsp;Patrick&nbsp;Chartrand</h1>
+        </div>
     </footer>
 </template>
 
